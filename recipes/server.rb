@@ -1,8 +1,8 @@
 package 'apache2' do
   action :install
 end
-file "/var/www/html/index.html" do
-  content "<h1> hello chef </h1>"
+template '/var/www/html/index.html' do
+  source 'index.html.erb'
 end
 service "apache2" do
   action [ :enable,:start]
